@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 //import axios from 'axios';
+import Sidebar from './components/sidebar';
 
 
 function App() {
@@ -24,8 +25,10 @@ function App() {
 
   return (
     <div>
-      {/* La tua pagina parte da qui */}
-      <h1 className='App-header'>Pagina App.js</h1>
+      <h1 className="App-header">Pagina App.js</h1>
+      <div className="App">
+        <Sidebar />
+      </div>
     </div>
   );
 }

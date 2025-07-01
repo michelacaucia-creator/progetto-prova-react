@@ -1,0 +1,22 @@
+.sidebar {
+  width: 150px;
+  background-color: #38597b; /* Blu */
+  color: white;
+  padding: 20px;
+  height: 100vh;
+}
+
+.menu-item {
+  margin-bottom: 10px;
+}
+
+.menu-title {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submenu {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+

@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  display: flex;
+}
+
+.App-header {
+  padding: 5px;
+  font-size: calc(15px + 1vmin)
 }
 
 .App-logo {
@@ -13,7 +18,7 @@
   }
 }
 
-.App-header {
+/* .App-header {
   background-color: white;
   min-height: 100vh;
   display: flex;
@@ -22,7 +27,7 @@
   justify-content: left;
   font-size: calc(10px + 1vmin);
   color: black;
-}
+} */
 
 .App-link {
   color: #61dafb;

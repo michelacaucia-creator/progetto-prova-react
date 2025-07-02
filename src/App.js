@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 //import axios from 'axios';
 import Sidebar from './components/sidebar';
+import mareImage from './images/mare.jpg';  
 
 
 function App() {
@@ -24,10 +25,22 @@ function App() {
   // }, []); 
 
   return (
-    <div>
+    <div className="Container">
       <h1 className="App-header">Pagina App.js</h1>
-      <div className="App">
+      <div className="Main">
         <Sidebar />
+        <div className="Content">
+          {/* Immagine presa dal web: */}
+          <img 
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" 
+            alt="Mare azzurro"
+            className="SeaImage"
+          />
+
+          {/* Immagine importata dal desktop  */}
+          <img src={mareImage} alt="Mare azzurro" className="SeaImage" />
+
+        </div>
       </div>
     </div>
   );

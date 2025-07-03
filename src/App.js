@@ -3,6 +3,9 @@ import { useState } from 'react';
 //import axios from 'axios';
 import Sidebar from './components/sidebar';
 import mareImage from './images/mare.jpg';  
+import RouterComponent from './components/routerComponent';
+import { BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function App() {
@@ -25,24 +28,20 @@ function App() {
   // }, []); 
 
   return (
-    <div className="Container">
-      <h1 className="App-header">Pagina App.js</h1>
-      <div className="Main">
-        <Sidebar />
-        <div className="Content">
-          {/* Immagine presa dal web: */}
-          <img 
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" 
-            alt="Mare azzurro"
-            className="SeaImage"
-          />
-
-          {/* Immagine importata dal desktop  */}
-          <img src={mareImage} alt="Mare azzurro" className="SeaImage" />
-
+    <BrowserRouter>
+      <div className="Container">
+        <Link to="/" className="App-header">
+          Pagina App.js
+        </Link>
+        {/* <h1 className="App-header">Pagina App.js</h1> */}
+        <div className="Main">
+          <Sidebar />
+          <div className='Content'>
+            <RouterComponent />
+          </div>
         </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 }
 

@@ -16,7 +16,13 @@
 }
 
 .submenu {
+  display: flex;
+  flex-direction: column; /* verticale */
   margin-left: 20px;
   margin-top: 5px;
 }
 
+.submenu-link {
+  color: white;         /* testo bianco */
+  text-decoration: none; /* rimuove sottolineatura */
+}

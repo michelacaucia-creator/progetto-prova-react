@@ -3,7 +3,7 @@ export const ISMOCKEDLOGIN = true
 // URL 
 const config = {
     dev: {
-        // baseUrl : 'https://api-pp.diva.metro.it', //URL pre production 
+        // baseUrl : 'https://example.it', //URL pre production 
         // vaseUrl : 'http://10.244.2.14:8080/', //BE Java macchina Michela
         // baseUrlToken
         // baseUrlRedirect

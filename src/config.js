@@ -4,7 +4,7 @@ export const ISMOCKEDLOGIN = true
 const config = {
     dev: {
         // baseUrl : 'https://example.it', //URL pre production 
-        // vaseUrl : 'http://10.244.2.14:8080/', //BE Java macchina Michela
+        // vaseUrl : 'http://10.333.0000:8080/', //BE Java macchina Michela
         // baseUrlToken
         // baseUrlRedirect
         // client_id_params

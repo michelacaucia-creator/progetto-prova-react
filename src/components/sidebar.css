@@ -3,7 +3,7 @@
   background-color: #38597b; /* Blu */
   color: white;
   padding: 20px;
-  height: 100vh;
+  height: 100vh;   /* vh: viewport height — cioè l’altezza della finestra visibile del browser. */
 }
 
 .menu-item {
@@ -11,7 +11,7 @@
 }
 
 .menu-title {
-  cursor: pointer;
+  cursor: pointer; /*cambia l’aspetto del puntatore del mouse quando passa sopra un elemento. */
   font-weight: bold;
 }
 

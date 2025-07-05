@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './sidebar.css'
 import { Link } from 'react-router-dom';
 
-function Sidebar() {
+function Sidebar({setToShoSpinner}) {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -15,8 +15,15 @@ function Sidebar() {
         </div>
         {isOpen1 && (
           <div className="submenu">
-            <Link to="/prova1.1" className="submenu-link">Prova 1.1</Link>
-            <Link to="/prova1.2" className="submenu-link">Prova 1.2</Link>
+
+            <Link to="/prova1.1" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 1.1
+            </Link>
+            
+            <Link to="/prova1.2" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 1.2
+            </Link>
+
           </div>
         )}
       </div>
@@ -27,8 +34,15 @@ function Sidebar() {
         </div>
         {isOpen2 && (
           <div className="submenu">
-            <Link to="/prova2.1" className="submenu-link">Prova 2.1</Link>
-            <Link to="/prova2.2" className="submenu-link">Prova 2.2</Link>
+
+            <Link to="/prova2.1" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 2.1
+            </Link>
+
+            <Link to="/prova2.2" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 2.2
+            </Link>
+
           </div>
         )}
       </div>
@@ -39,8 +53,15 @@ function Sidebar() {
         </div>
         {isOpen3 && (
           <div className="submenu">
-            <Link to="/prova3.1" className="submenu-link">Prova 3.1</Link>
-            <Link to="/prova3.2" className="submenu-link">Prova 3.2</Link>
+
+            <Link to="/prova3.1" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 3.1
+            </Link>
+
+            <Link to="/prova3.2" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+            Prova 3.2
+            </Link>
+            
           </div>
         )}
       </div>

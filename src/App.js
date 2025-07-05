@@ -12,6 +12,12 @@ function App() {
 
   const [token, setToken] = useState(sessionStorage.getItem("tokenSession"));
   const [fileContent, setFileContent] = useState('');
+  const [showSpinner, setShowSpinner] = useState(false);
+
+  //gestione dello spinner
+  const setToShoSpinner = (value) => {
+  setShowSpinner(value)
+  } 
   
   // useEffect(() => {
   // if(!token){ // se il token esiste allora...
@@ -27,17 +33,26 @@ function App() {
   // }
   // }, []); 
 
+
   return (
     <BrowserRouter>
       <div className="Container">
         <Link to="/" className="App-header">
           Pagina App.js
         </Link>
+
+        {/* Qui mostri lo spinner */}
+        {showSpinner && <div className="spinner"></div>}
+
         {/* <h1 className="App-header">Pagina App.js</h1> */}
         <div className="Main">
-          <Sidebar />
+          <Sidebar 
+          setToShoSpinner={setToShoSpinner} 
+          />
           <div className='Content'>
-            <RouterComponent />
+            <RouterComponent 
+            setToShoSpinner={setToShoSpinner} 
+            />
           </div>
         </div>
       </div>

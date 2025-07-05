@@ -61,3 +61,25 @@
   object-fit: cover;
 }
 
+.spinner {
+  position: fixed;       /* rimane fisso sopra tutto */
+  top: 50%;              /* centrato verticalmente */
+  left: 50%;             /* centrato orizzontalmente */
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 6px solid #f3f3f3;  /* colore grigio chiaro */
+  border-top: 6px solid #3498db; /* colore blu professionale */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 9999;         /* sopra tutti gli altri elementi */
+}
+
+/* animazione di rotazione */
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+

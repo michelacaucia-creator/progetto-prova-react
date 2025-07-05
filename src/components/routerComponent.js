@@ -10,15 +10,15 @@ import Pag_prova3_2 from '../pages/Pag_prova3_2';
 
 
 
-function RouterComponent() {
+function RouterComponent({setToShoSpinner}) {
   return (
     <Routes>
-      <Route path="/prova1.1" element={<Pag_prova1_1 />} />
-      <Route path="/prova1.2" element={<Pag_prova1_2 />} />
-      <Route path="/prova2.1" element={<Pag_prova2_1 />} />
-      <Route path="/prova2.2" element={<Pag_prova2_2 />} />
-      <Route path="/prova3.1" element={<Pag_prova3_1 />} />
-      <Route path="/prova3.2" element={<Pag_prova3_2 />} />
+      <Route path="/prova1.1" element={<Pag_prova1_1 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/prova1.2" element={<Pag_prova1_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/prova2.1" element={<Pag_prova2_1 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/prova2.2" element={<Pag_prova2_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={setToShoSpinner}/>} />
 
       <Route
         path="/"

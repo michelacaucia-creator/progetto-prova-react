@@ -6,12 +6,17 @@ import mareImage from './images/mare.jpg';
 import RouterComponent from './components/routerComponent';
 import { BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 function App() {
 
+  //serve per la traduzione
+  const { t, i18n } = useTranslation();
+
   const [token, setToken] = useState(sessionStorage.getItem("tokenSession"));
   const [fileContent, setFileContent] = useState('');
+  
   const [showSpinner, setShowSpinner] = useState(false);
 
   //gestione dello spinner
@@ -38,7 +43,7 @@ function App() {
     <BrowserRouter>
       <div className="Container">
         <Link to="/" className="App-header">
-          Pagina App.js
+          {t("Pagina App.js")}
         </Link>
 
         {/* Qui mostri lo spinner */}

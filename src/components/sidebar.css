@@ -26,3 +26,24 @@
   color: white;         /* testo bianco */
   text-decoration: none; /* rimuove sottolineatura */
 }
+
+/* Contenitore bandiere */
+.language-switcher {
+  position: absolute;      /* Fissa il contenitore in basso a sinistra */
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  gap: 10px;               /* Spazio tra bandiere */
+}
+
+/* Singola bandiera */
+.flag-icon {
+  width: 30px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.flag-icon:hover {
+  transform: scale(1.1);   /* Effetto zoom al passaggio mouse */
+}

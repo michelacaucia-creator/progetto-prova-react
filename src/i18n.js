@@ -13,7 +13,7 @@ const resources = {
       "Prova 1.2": "Prova 1.2",
       "Prova 2.1": "Prova 2.1",
       "Prova 2.2": "Prova 2.2",
-      "Prova 3.1": "Prova 1.1",
+      "Prova 3.1": "Prova 3.1",
       "Prova 3.2": "Prova 3.2",
       "Contenuto di Prova 1.1": "Contenuto di Prova 1.1",
       "Contenuto di Prova 1.2": "Contenuto di Prova 1.2",

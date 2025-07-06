@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from 'react-i18next';
+import { useLocation } from "react-router-dom";
 
 
 function Pag_prova1_1({setToShoSpinner}) {
@@ -7,15 +8,13 @@ function Pag_prova1_1({setToShoSpinner}) {
   
   //serve per la traduzione
   const { t, i18n } = useTranslation();
+  const location = useLocation();
   
 
   // Nascondi lo spinner appena questa pagina viene montata
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setToShoSpinner(false);
-    }, 500);
-    return () => clearTimeout(timer);
-  }, []);
+    setToShoSpinner(false);
+  }, [location]);
 
   return (
     <div>

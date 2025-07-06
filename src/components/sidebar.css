@@ -16,9 +16,10 @@
 
 /* Collapsed sidebar: stretta, mostra solo hamburger */
 .sidebar.collapsed {
-  width: 50px;
+  width: 40px;
   align-items: center;
 }
+
 
 /* Expanded sidebar: larga */
 .sidebar.expanded {
@@ -51,9 +52,6 @@
   transition: background-color 0.3s ease;
 }
 
-.hamburger-icon:hover div {
-  background-color: white;
-}
 
 /* Menu item */
 .menu-item {

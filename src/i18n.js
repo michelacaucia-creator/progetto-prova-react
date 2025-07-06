@@ -6,9 +6,9 @@ const resources = {
   it: {
     translation: {
       "Pagina App.js": "Pagina App.js",
-      "PROVA 1": "PROVA 1",
-      "PROVA 2": "PROVA 2",
-      "PROVA 3": "PROVA 3",
+      "PROVA_1": "PROVA_1",
+      "PROVA_2": "PROVA_2",
+      "PROVA_3": "PROVA_3",
       "Prova 1.1": "Prova 1.1",
       "Prova 1.2": "Prova 1.2",
       "Prova 2.1": "Prova 2.1",
@@ -27,10 +27,10 @@ const resources = {
   },
   en: {
     translation: {
-        "Pagina App.js": "App Page",
-        "PROVA 1": "TEST 1",
-        "PROVA 2": "TEST 2",
-        "PROVA 3": "TEST 3",
+        "Pagina App.js": "App.js Page",
+        "PROVA_1": "TEST_1",
+        "PROVA_2": "TEST_2",
+        "PROVA_3": "TEST_3",
         "Prova 1.1": "Test 1.1",
         "Prova 1.2": "Test 1.2",
         "Prova 2.1": "Test 2.1",

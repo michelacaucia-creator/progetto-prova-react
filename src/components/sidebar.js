@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import './sidebar.css';
 import { Link } from 'react-router-dom';
-import itFlag from '../images/it-flag.png';
-import ukFlag from '../images/uk-flag.png';
 import { useTranslation } from 'react-i18next';
 
 function Sidebar({ setToShoSpinner }) {
@@ -11,6 +9,7 @@ function Sidebar({ setToShoSpinner }) {
   const [isOpen1, setIsOpen1] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
 
@@ -29,7 +28,7 @@ function Sidebar({ setToShoSpinner }) {
         </div>
       )}
 
-      {/* Menu e bandierine */}
+      {/* Menu */}
       {sidebarOpen && (
         <>
           <div className="menu-container">
@@ -39,7 +38,7 @@ function Sidebar({ setToShoSpinner }) {
                 className={`menu-title ${isOpen1 ? 'open' : ''}`}
                 onClick={() => setIsOpen1(!isOpen1)}
               >
-                {t("PROVA 1")} 
+                {t("PROVA_1")} 
                 <span className="arrow">{isOpen1 ? '▲' : '▼'}</span>
               </div>
 
@@ -59,7 +58,7 @@ function Sidebar({ setToShoSpinner }) {
                 className={`menu-title ${isOpen2 ? 'open' : ''}`}
                 onClick={() => setIsOpen2(!isOpen2)}
               >
-                {t("PROVA 2")}
+                {t("PROVA_2")}
                 <span className="arrow">{isOpen2 ? '▲' : '▼'}</span>
               </div>
 
@@ -79,7 +78,7 @@ function Sidebar({ setToShoSpinner }) {
                 className={`menu-title ${isOpen3 ? 'open' : ''}`}
                 onClick={() => setIsOpen3(!isOpen3)}
               >
-                {t("PROVA 3")}
+                {t("PROVA_3")}
                 <span className="arrow">{isOpen3 ? '▲' : '▼'}</span>
               </div>
 

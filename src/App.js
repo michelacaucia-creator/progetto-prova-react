@@ -7,6 +7,9 @@ import RouterComponent from './components/routerComponent';
 import { BrowserRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import itFlag from '../src/images/it-flag.png'
+import ukFlag from '../src/images/uk-flag.png';
+
 
 
 function App() {
@@ -38,31 +41,46 @@ function App() {
   // }
   // }, []); 
 
+  const handleChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   return (
-    <BrowserRouter>
-      <div className="Container">
-        <Link to="/" className="App-header">
-          {t("Pagina App.js")}
-        </Link>
+      <BrowserRouter>
+        <div className="Container">
+          <div className="HeaderBar">
+            <Link to="/" className="App-header">
+              {t("Pagina App.js")}
+            </Link>
 
-        {/* Qui mostri lo spinner */}
-        {showSpinner && <div className="spinner"></div>}
+            <div className="Flags">
+              <img
+                src={itFlag}
+                alt="Italiano"
+                className="flag-icon"
+                onClick={() => handleChangeLanguage('it')}
+              />
+              <img
+                src={ukFlag}
+                alt="English"
+                className="flag-icon"
+                onClick={() => handleChangeLanguage('en')}
+              />
+            </div>
+          </div>
 
-        {/* <h1 className="App-header">Pagina App.js</h1> */}
-        <div className="Main">
-          <Sidebar 
-          setToShoSpinner={setToShoSpinner} 
-          />
-          <div className='Content'>
-            <RouterComponent 
-            setToShoSpinner={setToShoSpinner} 
-            />
+          {showSpinner && <div className="spinner"></div>}
+
+          <div className="Main">
+            <Sidebar setToShoSpinner={setToShoSpinner} />
+            <div className="Content">
+              <RouterComponent setToShoSpinner={setToShoSpinner} />
+            </div>
           </div>
         </div>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
   );
+
 }
 
 export default App;

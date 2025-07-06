@@ -3,13 +3,10 @@
 }
 
 .App-header {
-  padding: 10px;
   font-size: calc(15px + 1vmin);
-  background-color: #38597b;
   color: white;
-  margin: 0px;
-  text-decoration: none; /* niente sottolineatura */
-  cursor: pointer;      /* cambia il cursore al passaggio */
+  text-decoration: none;
+  cursor: pointer;
   font-weight: bold;
 }
 
@@ -81,5 +78,32 @@
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
+/* Barra intestazione: link + flags */
+.HeaderBar {
+  display: flex;
+  justify-content: space-between; /* scritta a sinistra, flags a destra */
+  align-items: center;            /* centrati verticalmente */
+  padding: 10px 20px;             /* spazio interno */
+  background: linear-gradient(135deg, #2a3a60, #1b273b);
+}
 
 
+/* Contenitore flags */
+.Flags {
+  display: flex;
+  gap: 10px;
+}
+
+/* Flag stile */
+.flag-icon {
+  width: 35px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 2px rgba(0,0,0,0.3));
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 5px;
+}
+
+.flag-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #63a4ff);
+}

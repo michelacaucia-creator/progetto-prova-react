@@ -1,49 +1,129 @@
 .sidebar {
-  width: 150px;
-  background-color: #38597b; /* Blu */
-  color: white;
-  padding: 20px;
-  height: 100vh;   /* vh: viewport height — cioè l’altezza della finestra visibile del browser. */
-}
-
-.menu-item {
-  margin-bottom: 10px;
-}
-
-.menu-title {
-  cursor: pointer; /*cambia l’aspetto del puntatore del mouse quando passa sopra un elemento. */
-  font-weight: bold;
-}
-
-.submenu {
+  background: linear-gradient(135deg, #2a3a60, #1b273b);
+  color: #e0e6f1;
+  padding: 15px 10px;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.3);
   display: flex;
-  flex-direction: column; /* verticale */
-  margin-left: 20px;
-  margin-top: 5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: width 0.3s ease;
+  position: relative;
+  user-select: none;
+  height: 100%; /* tutta altezza finestra */
+  overflow: hidden;
 }
 
-.submenu-link {
-  color: white;         /* testo bianco */
-  text-decoration: none; /* rimuove sottolineatura */
+/* Collapsed sidebar: stretta, mostra solo hamburger */
+.sidebar.collapsed {
+  width: 50px;
+  align-items: center;
 }
 
-/* Contenitore bandiere */
-.language-switcher {
-  position: absolute;      /* Fissa il contenitore in basso a sinistra */
-  bottom: 10px;
-  left: 10px;
-  display: flex;
-  gap: 10px;               /* Spazio tra bandiere */
+/* Expanded sidebar: larga */
+.sidebar.expanded {
+  width: 140px;
+  align-items: flex-start;
 }
 
-/* Singola bandiera */
-.flag-icon {
-  width: 30px;
-  height: auto;
+/* Wrapper del menu per scroll interno */
+.menu-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Hamburger icon (3 trattini) */
+.hamburger-icon {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
-.flag-icon:hover {
-  transform: scale(1.1);   /* Effetto zoom al passaggio mouse */
+.hamburger-icon div {
+  height: 4px;
+  background-color: white;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
 }
+
+.hamburger-icon:hover div {
+  background-color: white;
+}
+
+/* Menu item */
+.menu-item {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Titolo menu con freccia */
+.menu-title {
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  color: #cfd8ff;
+  transition: color 0.3s ease;
+  padding: 5px 8px;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.menu-title:hover {
+  color: #63a4ff;
+}
+
+.arrow {
+  font-size: 0.8rem;
+  color: white;
+  transition: transform 0.3s ease;
+  margin-left: 25px;
+}
+
+.menu-title.open .arrow {
+  transform: rotate(180deg);
+}
+
+/* Submenu con animazione apertura */
+.submenu {
+  max-height: 0;
+  overflow: hidden;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  transition: max-height 0.3s ease;
+  padding: 0;
+}
+
+.submenu.open {
+  max-height: 200px; /* o auto, ma max-height serve per animazione */
+}
+
+/* Link submenu */
+.submenu-link {
+  color: #cfd8ff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  padding-left: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: 0;
+  line-height: 1.2;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.submenu-link:hover {
+  color: #63a4ff;
+  border-left: 3px solid #63a4ff;
+}
+

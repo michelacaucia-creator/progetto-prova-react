@@ -26,9 +26,10 @@ function App() {
   const setToShoSpinner = (value) => {
   setShowSpinner(value)
   } 
+
   
   // useEffect(() => {
-  // if(!token){ // se il token esiste allora...
+  // if(token){ // se il token esiste allora...
   //   // Esegui una richiesta HTTP per ottenere il contenuto del file dal server NGINX
   //   axios.get('/config/appConfig.js') // non avendo BE non abbiamo file di configurazione esterno appConfig.js
   //     .then(response => {

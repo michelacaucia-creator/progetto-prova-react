@@ -1,0 +1,38 @@
+/* Contenitore della griglia */
+.griglia-container {
+  width: 80%;
+  margin: 40px auto;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Personalizza header delle colonne */
+.ag-theme-quartz .ag-header-cell {
+  background-color: #f7f7f7;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Righe alternate */
+.ag-theme-quartz .ag-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.ag-theme-quartz .ag-row:hover {
+  background-color: #e8f0fe;
+}
+
+/* Celle */
+.ag-theme-quartz .ag-cell {
+  font-size: 13px;
+  color: #222;
+}
+
+/* Bordo arrotondato solo intorno alla tabella */
+.ag-root-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+}

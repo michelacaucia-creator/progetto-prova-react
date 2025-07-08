@@ -1,0 +1,30 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modalContainer {
+  position: absolute;
+  background: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  cursor: grab;
+  user-select: none;
+
+  /* Centro iniziale */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modalContainer:active {
+  cursor: grabbing;
+}

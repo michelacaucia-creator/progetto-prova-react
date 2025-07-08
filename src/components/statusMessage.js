@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 
 export default function StatusToast({ type, message, onClose }) {
-  useEffect(() => {
+  
+    useEffect(() => {
     if (message && typeof onClose === 'function') {
       const timer = setTimeout(() => {
         onClose();

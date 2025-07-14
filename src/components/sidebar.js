@@ -38,13 +38,13 @@ function Sidebar({ setToShoSpinner }) {
                 className={`menu-title ${isOpen1 ? 'open' : ''}`}
                 onClick={() => setIsOpen1(!isOpen1)}
               >
-                {t("PROVA_1")} 
+                {t("Utenza")}
                 <span className="arrow">{isOpen1 ? '▲' : '▼'}</span>
               </div>
 
               <div className={`submenu ${isOpen1 ? 'open' : ''}`}>
-                <Link to="/prova1.1" className="submenu-link" onClick={() => setToShoSpinner(true)}>
-                  {t("Prova 1.1")}
+                <Link to="/registration" className="submenu-link" onClick={() => setToShoSpinner(true)}>
+                  {t("Registrati")}
                 </Link>
                 <Link to="/prova1.2" className="submenu-link" onClick={() => setToShoSpinner(true)}>
                   {t("Prova 1.2")}

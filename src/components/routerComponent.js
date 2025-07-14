@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import mareImage from '../images/mare.jpg';
 
-import Pag_prova1_1 from '../pages/Pag_prova1_1';
+import Registration from '../pages/registration';
 import Pag_prova1_2 from '../pages/Pag_prova1_2'; 
 import Pag_prova2_1 from '../pages/Pag_prova2_1';
 import Pag_prova2_2 from '../pages/Pag_prova2_2';
@@ -13,7 +13,7 @@ import Pag_prova3_2 from '../pages/Pag_prova3_2';
 function RouterComponent({setToShoSpinner}) {
   return (
     <Routes>
-      <Route path="/prova1.1" element={<Pag_prova1_1 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/registration" element={<Registration setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova1.2" element={<Pag_prova1_2 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova2.1" element={<Pag_prova2_1 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova2.2" element={<Pag_prova2_2 setToShoSpinner={setToShoSpinner}/>} />

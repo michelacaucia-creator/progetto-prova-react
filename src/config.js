@@ -11,7 +11,7 @@ const config = {
         // client_secret_params
     },
     empty: {
-        baseUrl : '',
+        baseUrl : 'http://localhost:8080',
         baseUrlToken : '',
         baseUrlRedirect : '',
         client_id_params : '',

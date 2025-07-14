@@ -1,9 +1,7 @@
-import { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useTranslation } from 'react-i18next';
 import { useLocation } from "react-router-dom";
-import GrigliaProva1 from "../components/agGrid/grigliaProva1";
 import StatusToast from "../components/statusMessage";
-import { useState } from "react";
 import ModalNote from "../components/modal/modal_Pag1";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,8 +10,10 @@ import Button from 'react-bootstrap/Button';
 // https://react-bootstrap.netlify.app/docs/layout/grid/
 // https://react-bootstrap.netlify.app/docs/getting-started/introduction/
 
-function Registration({setToShoSpinner}) {
-  console.log("Registrazione")
+import wrapperRestApi from "../wrapper/restApiWrapper";
+
+function Registration ({setToShoSpinner})  {
+   console.log("Registrazione");
   
   //serve per la traduzione
   const { t, i18n } = useTranslation();
@@ -48,6 +48,47 @@ function Registration({setToShoSpinner}) {
   const handleClosePopUp = () => {
     setIsPopupOpen(false);
   };
+ const insertUser =  async (token) => {
+        let requestBody = {
+             userId:6,
+              name:"usernew",
+               surname:"surnameUserNew",
+              email:"usernew@email.com",
+               fiscalCode:"prova",
+               pIva:"PIVA"
+            }
+        try {
+            alert("passa 0");
+            const res =  await wrapperRestApi('/api/post/general/insertuser', 'POST', requestBody, token);
+             console.log("valore da servizio:", res)
+           // this.props.setToShoSpinner(false);
+            if(res){
+              alert (res);
+            }
+        } catch (error) {
+            //this.setState({isUnderConstruction : true})
+            let errorString = [];
+            alert (error);
+            errorString.push(error.message);
+           // this.props.setToShoSpinner(false);
+           // this.props.setStringForError(errorString);
+           // this.props.showModalError();
+        }
+    };
+
+
+  const handleRegistra = () => {
+
+    //https://www.dhiwise.com/post/a-step-by-step-guide-to-retrieving-input-values-in-react
+
+        insertUser("");
+
+
+    };
+
+
+
+
 
   return (
     <>
@@ -127,6 +168,7 @@ function Registration({setToShoSpinner}) {
                     </Col>
                     <Col>
                       <Button style={{marginLeft: '410px'}} onClick={() => handlePopUp()}>PopUp</Button>
+                      <Button style={{marginLeft: '410px'}} onClick={() => handleRegistra()}>Registra</Button>
                     </Col>
                 </Row>
             </Container>

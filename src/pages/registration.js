@@ -58,7 +58,7 @@ function Registration ({setToShoSpinner})  {
                pIva:"PIVA"
             }
         try {
-            alert("passa 0");
+
             const res =  await wrapperRestApi('/api/post/general/insertuser', 'POST', requestBody, token);
              console.log("valore da servizio:", res)
            // this.props.setToShoSpinner(false);

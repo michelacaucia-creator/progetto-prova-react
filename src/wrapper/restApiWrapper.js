@@ -1,28 +1,24 @@
 import axios from 'axios';
-import { ConvertResponseToUpperCaseList, ConvertResponseToUpperCaseBody } from '../utils/utilsFunction';
-import { ResponseControl } from '../utils/utilsFunction';
-// import { baseUrlRedirect } from '../pages/login/login';
+//import { ResponseControl } from '../utils/utilsFunction';
 import config from '../config';
 
-// export const baseUrl = 'https://api-pp.diva.metro.it';
 export const baseUrl = config.baseUrl;
 const baseUrlRedirect = config.baseUrlRedirect;
 
 const api = axios.create({
   baseURL : baseUrl
-  //baseURL : 'http://localhost:8080'
 });
 
 
 export const wrapperRestApi  = async (endpoint, type, body) => {
-    alert("passa");
-  //const token = sessionStorage.getItem("tokenSession");
-  /*const config = {
+
+   const token = sessionStorage.getItem("tokenSession");
+   const config = {
     headers: {
         //'Content-Type': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${token}`
-    }*/
+        //'Authorization': `Bearer ${token}`
+    }
   };
 
   const requestBody = body;
@@ -37,12 +33,13 @@ export const wrapperRestApi  = async (endpoint, type, body) => {
                 }
                 );
                 if(response.data.hasOwnProperty("list"))
-                  return {"list": ConvertResponseToUpperCaseList(response.data.list)};
+                  return {"list": response.data.list};
                 else 
                   return response.data;
             }
             if(type==='POST'){
-              // console.log("POST")
+                endpoint="http://localhost:8080" + endpoint;
+              alert("POST" + endpoint);
               const response = await api.post(
                 endpoint,
                 requestBody,
@@ -122,7 +119,7 @@ export const wrapperRestApi  = async (endpoint, type, body) => {
 
 };
 
-//export default wrapperRestApi;
+export default wrapperRestApi;
 
 export const wrapperRestApiForFile  = async (endpoint, type, body) => {
   const token = sessionStorage.getItem("tokenSession");
@@ -147,7 +144,7 @@ export const wrapperRestApiForFile  = async (endpoint, type, body) => {
                 }
                 );
                 if(response.data.hasOwnProperty("list"))
-                  return {"list": ConvertResponseToUpperCaseList(response.data.list)};
+                  return {"list": response.data.list};
                 else 
                   return response.data;
             }
@@ -254,7 +251,7 @@ export const wrapperRestApiForExcel  = async (endpoint, type, body) => {
                 }
                 );
                 if(response.data.hasOwnProperty("list"))
-                  return {"list": ConvertResponseToUpperCaseList(response.data.list)};
+                  return {"list": response.data.list};
                 else 
                   return response.data;
             }

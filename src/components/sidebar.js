@@ -34,7 +34,7 @@ function Sidebar({ setToShoSpinner }) {
           <div className="menu-container">
             <div className="menu-item">
 
-              <div
+             {/* <div
                 className={`menu-title ${isOpen1 ? 'open' : ''}`}
                 onClick={() => setIsOpen1(!isOpen1)}
               >
@@ -49,7 +49,7 @@ function Sidebar({ setToShoSpinner }) {
                 <Link to="/prova1.2" className="submenu-link" onClick={() => setToShoSpinner(true)}>
                   {t("Prova 1.2")}
                 </Link>
-              </div>
+              </div>*/}
 
             </div>
 

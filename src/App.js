@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import itFlag from '../src/images/it-flag.png'
 import ukFlag from '../src/images/uk-flag.png';
-
+import Button from 'react-bootstrap/Button';
 
 
 function App() {
@@ -27,7 +27,8 @@ function App() {
   setShowSpinner(value)
   } 
 
-  
+
+
   // useEffect(() => {
   // if(token){ // se il token esiste allora...
   //   // Esegui una richiesta HTTP per ottenere il contenuto del file dal server NGINX
@@ -67,6 +68,18 @@ function App() {
                 className="flag-icon"
                 onClick={() => handleChangeLanguage('en')}
               />
+              <div>
+
+                <Link to="/login">
+                    <Button style={{marginLeft: '410px'}} >Login</Button>
+                </Link>
+
+                <Link to="/registration">
+                    <Button style={{marginLeft: '410px'}}  >Registrati</Button>
+                </Link>
+
+
+              </div>
             </div>
           </div>
 

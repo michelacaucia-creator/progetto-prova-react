@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import mareImage from '../images/mare.jpg';
 
 import Registration from '../pages/registration';
-import Pag_prova1_2 from '../pages/Pag_prova1_2'; 
+import Login from '../pages/Login';
 import Pag_prova2_1 from '../pages/Pag_prova2_1';
 import Pag_prova2_2 from '../pages/Pag_prova2_2';
 import Pag_prova3_1 from '../pages/Pag_prova3_1';
@@ -14,7 +14,7 @@ function RouterComponent({setToShoSpinner}) {
   return (
     <Routes>
       <Route path="/registration" element={<Registration setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/prova1.2" element={<Pag_prova1_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/Login" element={<Login setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova2.1" element={<Pag_prova2_1 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova2.2" element={<Pag_prova2_2 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={setToShoSpinner}/>} />
@@ -30,7 +30,8 @@ function RouterComponent({setToShoSpinner}) {
               alt="Mare azzurro"
               className="SeaImage"
             />
-            {/* Immagine importata dal desktop */}
+
+               {/* Immagine importata dal desktop */}
             {/* <img src={mareImage} alt="Mare azzurro" className="SeaImage" /> */}
           </>
         }

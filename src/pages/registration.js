@@ -48,15 +48,8 @@ function Registration ({setToShoSpinner})  {
   const handleClosePopUp = () => {
     setIsPopupOpen(false);
   };
- const insertUser =  async (token) => {
-        let requestBody = {
-             userId:6,
-              name:"usernew",
-               surname:"surnameUserNew",
-              email:"usernew@email.com",
-               fiscalCode:"prova",
-               pIva:"PIVA"
-            }
+ const insertUser =  async (token,requestBody) => {
+
         try {
 
             const res =  await wrapperRestApi('/api/post/general/insertuser', 'POST', requestBody, token);
@@ -75,13 +68,41 @@ function Registration ({setToShoSpinner})  {
            // this.props.showModalError();
         }
     };
+    const [nameInVal, setNameInVal] = useState('');
+    const [surnameInVal, setSurnameInVal] = useState('');
+     const [emailInVal, setEmailInVal] = useState('');
+      const [fiscalInVal, setFiscalInVal] = useState('');
+       const [pivaInVal, setPivaInVal] = useState('');
 
+    const handleChangeName =(event) =>{
+        setNameInVal(event.target.value);
+    }
+
+    const handleChangeSurname =(event) =>{
+        setSurnameInVal(event.target.value);
+    }
+    const handleChangeEmail =(event) =>{
+        setEmailInVal(event.target.value);
+    }
+    const handleChangeFiscal =(event) =>{
+        setFiscalInVal(event.target.value);
+    }
+    const handleChangePiva =(event) =>{
+        setPivaInVal(event.target.value);
+    }
 
   const handleRegistra = () => {
-
+        let requestBody = {
+             userId:7,
+             name:nameInVal,
+             surname:surnameInVal,
+             email:emailInVal,
+             fiscalCode:fiscalInVal,
+             pIva:pivaInVal
+            }
     //https://www.dhiwise.com/post/a-step-by-step-guide-to-retrieving-input-values-in-react
-
-        insertUser("");
+       // alert (requestBody.userId);
+        insertUser( "" , requestBody);
 
 
     };
@@ -127,13 +148,13 @@ function Registration ({setToShoSpinner})  {
                     <label> Nome*</label>
                 </Col>
                  <Col xs="3">
-                    <input name="inpNome" />
+                    <input name="inpNome" value={nameInVal} onChange={handleChangeName}/>
                </Col>
                 <Col xs="3">
                     <label> Cognome*</label>
                  </Col>
                  <Col xs="3">
-                    <input name= "inpCognome"/>
+                    <input name= "inpCognome" value={surnameInVal} onChange={handleChangeSurname}/>
                  </Col>
               </Row>
                 <Row>
@@ -141,7 +162,7 @@ function Registration ({setToShoSpinner})  {
                         <label> Email*</label>
                      </Col>
                      <Col xs="9">
-                        <input name= "inpEmail"/>
+                        <input name= "inpEmail" value={emailInVal} onChange={handleChangeEmail}/>
                     </Col>
                 </Row>
                 <Row>
@@ -149,13 +170,13 @@ function Registration ({setToShoSpinner})  {
                         <label> Codice Fiscale</label>
                     </Col>
                    <Col xs="3">
-                        <input name= "inpCF"/>
+                        <input name= "inpCF" value={fiscalInVal} onChange={handleChangeFiscal}/>
                     </Col>
                     <Col xs="3">
                          <label> Partita Iva</label>
                       </Col>
                      <Col xs="3">
-                         <input name= "inpPIva"/>
+                         <input name= "inpPIva" value={pivaInVal} onChange={handleChangePiva}/>
                     </Col>
                 </Row>
                  <Row>

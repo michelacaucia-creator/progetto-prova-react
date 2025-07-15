@@ -51,7 +51,8 @@ function Registration ({setToShoSpinner})  {
  const insertUser =  async (token,requestBody) => {
 
         try {
-
+            const nextId = await wrapperRestApi('/api/get/general/getNextUserId', 'GET', null, token);
+            requestBody.userId= nextId[0];
             const res =  await wrapperRestApi('/api/post/general/insertuser', 'POST', requestBody, token);
              console.log("valore da servizio:", res)
            // this.props.setToShoSpinner(false);
@@ -100,11 +101,7 @@ function Registration ({setToShoSpinner})  {
              fiscalCode:fiscalInVal,
              pIva:pivaInVal
             }
-    //https://www.dhiwise.com/post/a-step-by-step-guide-to-retrieving-input-values-in-react
-       // alert (requestBody.userId);
         insertUser( "" , requestBody);
-
-
     };
 
 

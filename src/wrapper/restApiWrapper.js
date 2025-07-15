@@ -13,7 +13,7 @@ const api = axios.create({
 export const wrapperRestApi  = async (endpoint, type, body) => {
 
    const token = sessionStorage.getItem("tokenSession");
-   const config = {
+   const configApi = {
     headers: {
         //'Content-Type': 'application/json',
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -28,7 +28,7 @@ export const wrapperRestApi  = async (endpoint, type, body) => {
               const response = await api.get(
                 endpoint,
                 {
-                  ...config,
+                  ...configApi,
                   params : requestBody
                 }
                 );
@@ -38,13 +38,12 @@ export const wrapperRestApi  = async (endpoint, type, body) => {
                   return response.data;
             }
             if(type==='POST'){
-                endpoint="http://localhost:8080" + endpoint;
-              alert("POST" + endpoint);
+
               const response = await api.post(
                 endpoint,
                 requestBody,
                 {
-                  ...config
+                  ...configApi
                 }
               );
               return response.data;
@@ -123,7 +122,7 @@ export default wrapperRestApi;
 
 export const wrapperRestApiForFile  = async (endpoint, type, body) => {
   const token = sessionStorage.getItem("tokenSession");
-  const config = {
+  const configApi = {
     headers: {
         //'Content-Type': 'application/json',
         //'Content-Type': 'multipart/form-data',
@@ -139,7 +138,7 @@ export const wrapperRestApiForFile  = async (endpoint, type, body) => {
               const response = await api.get(
                 endpoint,
                 {
-                  ...config,
+                  ...configApi,
                   params : requestBody
                 }
                 );
@@ -154,7 +153,7 @@ export const wrapperRestApiForFile  = async (endpoint, type, body) => {
                 endpoint,
                 requestBody,
                 {
-                  ...config
+                  ...configApi
                 }
               );
               return response.data;
@@ -231,7 +230,7 @@ export const wrapperRestApiForFile  = async (endpoint, type, body) => {
 
 export const wrapperRestApiForExcel  = async (endpoint, type, body) => {
   const token = sessionStorage.getItem("tokenSession");
-  const config = {
+  const configApi = {
     headers: {
         //'Content-Type': 'application/json',
         'Content-Type': 'application/octet-stream',
@@ -246,7 +245,7 @@ export const wrapperRestApiForExcel  = async (endpoint, type, body) => {
               const response = await api.get(
                 endpoint,
                 {
-                  ...config,
+                  ...configApi,
                   params : requestBody
                 }
                 );
@@ -261,7 +260,7 @@ export const wrapperRestApiForExcel  = async (endpoint, type, body) => {
                 endpoint,
                 requestBody,
                 {
-                  ...config
+                  ...configApi
                 }
               );
               return response.data;

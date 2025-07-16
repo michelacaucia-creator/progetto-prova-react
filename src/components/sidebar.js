@@ -3,7 +3,7 @@ import './sidebar.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-function Sidebar({ setToShoSpinner }) {
+function Sidebar({ setToShoSpinner  }) {
   const { t, i18n } = useTranslation();
 
   const [isOpen1, setIsOpen1] = useState(false);

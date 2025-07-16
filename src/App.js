@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 //import axios from 'axios';
 import Sidebar from './components/sidebar';
 import mareImage from './images/mare.jpg';  
@@ -11,9 +11,8 @@ import itFlag from '../src/images/it-flag.png'
 import ukFlag from '../src/images/uk-flag.png';
 import Button from 'react-bootstrap/Button';
 
-
 function App() {
-
+    const [userLogged,setUserLogged] =useState(sessionStorage.getItem("userLogged"));
   //serve per la traduzione
   const { t, i18n } = useTranslation();
 
@@ -27,7 +26,11 @@ function App() {
   setShowSpinner(value)
   } 
 
-
+   /* useEffect(() => {
+        if (window.sessionStorage.getItem('userLogged')) {
+            setUserLogged(true);
+        }
+    }, []);*/
 
   // useEffect(() => {
   // if(token){ // se il token esiste allora...
@@ -47,49 +50,70 @@ function App() {
     i18n.changeLanguage(lang);
   };
 
+  const handleLogout= () => {
+        sessionStorage.removeItem("userLogged", false);
+         sessionStorage.removeItem("userName",'');
+          window.location.reload();
+    };
+
   return (
       <BrowserRouter>
         <div className="Container">
           <div className="HeaderBar">
-            <Link to="/" className="App-header">
-              {t("Pagina App.js")}
-            </Link>
-
-            <div className="Flags">
-              <img
-                src={itFlag}
-                alt="Italiano"
-                className="flag-icon"
-                onClick={() => handleChangeLanguage('it')}
-              />
-              <img
-                src={ukFlag}
-                alt="English"
-                className="flag-icon"
-                onClick={() => handleChangeLanguage('en')}
-              />
-              <div>
-
-                <Link to="/login">
-                    <Button style={{marginLeft: '410px'}} >Login</Button>
+            <div className="LeftHeaderBar" style={{'justify-content': 'flex-start'}}>
+                <Link to="/" className="App-header">
+                  {t("E-Commerce training")}
                 </Link>
-
-                <Link to="/registration">
-                    <Button style={{marginLeft: '410px'}}  >Registrati</Button>
-                </Link>
-
-
-              </div>
             </div>
-          </div>
+            <div className="RightHeaderBar" style={{'justify-content': 'flex-end'}}>
+             <div className="Flags"  style={{marginLeft: '50px'}, {float: 'right'}} >
+                              <img
+                                src={itFlag}
+                                alt="Italiano"
+                                className="flag-icon"
+                                onClick={() => handleChangeLanguage('it')}
+                              />
+                              <img
+                                src={ukFlag}
+                                alt="English"
+                                className="flag-icon"
+                                onClick={() => handleChangeLanguage('en')}
+                              />
+
+                         </div>
+                {!userLogged && (<div className="buttons"  style={{marginLeft: '10px'} , {float: 'right'}} >
+                    <Link to="/login">
+                        <Button style={{marginLeft: ' 10px'} } >Login</Button>
+                    </Link>
+
+                     <Link to="/registration">
+                        <Button style={{marginLeft: '10px'} }   >Registrati</Button>
+                    </Link>
+
+                </div>)}
+
+                 {userLogged && (<div className="buttonLogout"  style={{marginLeft: '10px'} , {float: 'right'}} >
+                                    <Link to="/">
+                                        <Button style={{marginLeft: ' 10px'} }  onClick={() =>handleLogout()}>Logout</Button>
+                                    </Link>
+
+
+                                </div>)}
+
+             </div>
+            </div>
+
 
           {showSpinner && <div className="spinner"></div>}
+            <div className="Main">
 
-          <div className="Main">
-            <Sidebar setToShoSpinner={setToShoSpinner} />
-            <div className="Content">
-              <RouterComponent setToShoSpinner={setToShoSpinner} />
+             {userLogged &&
+                <Sidebar setToShoSpinner={setToShoSpinner}   />
+            }
+             <div className="Content">
+              <RouterComponent setToShoSpinner={setToShoSpinner}  callBack={setUserLogged}/>
             </div>
+
           </div>
         </div>
       </BrowserRouter>

@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import wrapperRestApi from "../wrapper/restApiWrapper";
 
 function Login({setToShoSpinner}) {
 
@@ -32,15 +33,38 @@ function Login({setToShoSpinner}) {
     }
   const handleLogin = () => {
         let requestBody = {
-             email:emailInVal,
-             password: passInVal
+             userName:emailInVal,
+             psw: passInVal
             }
         checkLogin( "" , requestBody);
     };
 
-    const checkLogin =(token, requestBody) => {
-        alert ("login:" + requestBody.email + " password:" + requestBody.password );
-    }
+
+
+const checkLogin =async (token, requestBody)     => {
+
+        try {
+            const res = await wrapperRestApi('/api/get/general/checkLogin', 'GET', requestBody, token);
+
+             console.log("valore da servizio:", res)
+           // this.props.setToShoSpinner(false);
+            if(res){
+             //  setUserLoggedFunct(true);
+               // setUserLogged(true);
+                 sessionStorage.setItem("userLogged", true);
+                  sessionStorage.setItem("userName", res[0].email);
+                window.location.reload();
+            }
+        } catch (error) {
+            //this.setState({isUnderConstruction : true})
+            let errorString = [];
+            alert (error);
+            errorString.push(error.message);
+           // this.props.setToShoSpinner(false);
+           // this.props.setStringForError(errorString);
+           // this.props.showModalError();
+        }
+    };
 
 
   return (
@@ -76,7 +100,7 @@ function Login({setToShoSpinner}) {
                 <label> Password</label>
             </Col>
             <Col xs="9">
-                <input name= "inpPass" value={passInVal} onChange={handleChangePass}/>
+                <input name= "inpPass" type="password" value={passInVal} onChange={handleChangePass}/>
             </Col>
         </Row>
         <Row>
@@ -84,7 +108,7 @@ function Login({setToShoSpinner}) {
          </Row>
         <Row>
             <Col>
-                <Link to="/" className="App-header">
+                <Link to="/" className="App-header" refresh="true">
                     <Button style={{marginLeft: '410px'}} onClick={() => handleLogin()}>Login</Button>
                 </Link>
             </Col>

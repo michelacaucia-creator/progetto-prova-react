@@ -3,8 +3,8 @@ import mareImage from '../images/mare.jpg';
 
 import Registration from '../pages/registration';
 import Login from '../pages/Login';
-import Pag_prova2_1 from '../pages/Pag_prova2_1';
-import Pag_prova2_2 from '../pages/Pag_prova2_2';
+import Acquisti from '../pages/acquisti';
+import Result from '../pages/result';
 import Pag_prova3_1 from '../pages/Pag_prova3_1';
 import Pag_prova3_2 from '../pages/Pag_prova3_2';
 
@@ -12,12 +12,15 @@ import Pag_prova3_2 from '../pages/Pag_prova3_2';
 
 
 function RouterComponent({setToShoSpinner}) {
+
+
+
   return (
     <Routes>
       <Route path="/registration" element={<Registration setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/Login" element={<Login setToShoSpinner={setToShoSpinner} />} />
-      <Route path="/prova2.1" element={<Pag_prova2_1 setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/prova2.2" element={<Pag_prova2_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/login" element={<Login setToShoSpinner={setToShoSpinner} />} />
+      <Route path="/acquisti" element={<Acquisti setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/result" element={<Result setToShoSpinner={setToShoSpinner}  />} />
       <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={setToShoSpinner}/>} />
 

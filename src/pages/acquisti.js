@@ -5,7 +5,9 @@ import React, { useState ,useEffect} from 'react';
 import './subMenu.css';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
+import Result from '../pages/result';
+import Button from 'react-bootstrap/Button';
+import wrapperRestApi from "../wrapper/restApiWrapper";
 
 
 function Acquisti({setToShoSpinner}) {
@@ -26,6 +28,13 @@ const handleSubCategory =(subCate) => {
 
 }
 
+ const getAllProd = async (subCat) => {
+        let requestBody = {
+            subCat : subCat
+        };
+
+         sessionStorage.setItem("res",  JSON.stringify(await wrapperRestApi('/api/get/product/getProducts', 'GET', requestBody, ''))  );
+        };
 
   // Nascondi lo spinner appena questa pagina viene montata
   useEffect(() => {
@@ -36,7 +45,12 @@ const handleSubCategory =(subCate) => {
   return (
     <div>
       <h2 style={{marginLeft:"20px"}}>{t("Sezione acquisti")}</h2>
-        <div className="menu-container">
+        <Link to="/result" >
+         <Button onClick={ () => {getAllProd(1)}}> mostra risultati </Button>
+        </Link>
+
+
+       {/* <div className="menu-container">
 
                  <div className="menu-item">
                    <div
@@ -47,7 +61,7 @@ const handleSubCategory =(subCate) => {
                      <span className="arrow">{isOpen2 ? '▲' : '▼'}</span>
                    </div>
 
-                   <div className={`submenu ${isOpen2 ? 'open' : ''}`}>
+                                      <div className={`submenu ${isOpen2 ? 'open' : ''}`}>
                      <Link to="/result" className="submenu-link" onClick={() => handleSubCategory("esperienze")}>
                        {t("sottocategoria1")}
                      </Link>
@@ -77,7 +91,7 @@ const handleSubCategory =(subCate) => {
                    </div>
 
                  </div>
-               </div>
+               </div>*/}
     </div>
   );
 }

@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { Trash } from 'react-bootstrap-icons';
 import { Cart } from 'react-bootstrap-icons';
 import { PencilSquare } from 'react-bootstrap-icons';
+import wrapperRestApi from "../wrapper/restApiWrapper";
 /*import prod1 from '../../src/images/prod1.jpg'
 import prod2 from '../src/images/prod2.jpg'
 import prod3 from '../src/images/prod3.jpg'
@@ -16,8 +17,11 @@ function Result({setToShoSpinner} ) {
   
   //serve per la traduzione
   const { t, i18n } = useTranslation();
+  const res = useState(JSON.parse(sessionStorage.getItem("res")));
 
   const [subCategory,setSubCategory] =useState(sessionStorage.getItem("subCate"));
+
+    let productList=[];
 
   const location = useLocation();
   
@@ -25,60 +29,57 @@ function Result({setToShoSpinner} ) {
         alert("cancellato il prodotto "+ num);
     }
 
-      const handleCart= (num) => {
+      const handleCart= async (num) => {
             alert("aggiunto il prodotto "+ num + "al carrello");
         }
+
+      res[0].map( (element ) => {
+
+        productList.push(   <Row>
+                                <Col xs="1"> {element.productId} </Col>
+                                <Col xs="2"> {element.description} </Col>
+                                <Col xs="4"> {element.LongDescription} </Col>
+                                <Col xs="1"> {element.price} </Col>
+                                <Col xs="2">  <img  src={require('../images/' + element.image + '.jpg')}  class="img-thumbnail"/>  </Col>
+                                <Col xs="1"> <Button onClick={() => handleCart(element.subCategory) }> <Cart size={20} color="green" /></Button></Col>
+                            </Row>
+                        );
+        }
+      );
+
+
+
+
+
   // Nascondi lo spinner appena questa pagina viene montata
   useEffect(() => {
     setToShoSpinner(false);
   }, [location]);
 
 
-  return (
-    <div>
-      <h2 style={{marginLeft:"20px"}}>{t("Prodotti della categoria : " ) +  subCategory}  </h2>
-         <Container fluid="md">
-            <Row>
-                <Col xs="1"> <h1>ID </h1></Col>
-                <Col xs="2"> <h1>Desc. </h1> </Col>
-                <Col xs="4"> <h1>Dettagli </h1> </Col>
+         return  (<div>
+                    <Container fluid="md">
 
-                <Col xs="1"> <h1>Prezzo </h1></Col>
-                <Col xs="2"> <h1>Foto</h1>  </Col>
-                <Col xs="1"> <h1>-</h1> </Col>
-            </Row>
-            <Row>
-                <Col xs="1"> 1 </Col>
-                <Col xs="2"> <h3>Prodotto 1</h3></Col>
-                <Col xs="4"> Descrizione lunga ...  </Col>
-                <Col xs="1"> 13.50 </Col>
+                             <Row>
+                                 <Col xs="1"> <h1>ID </h1></Col>
+                                 <Col xs="2"> <h1>Desc. </h1> </Col>
+                                 <Col xs="4"> <h1>Dettagli </h1> </Col>
 
-                <Col xs="2">  <img  src={require('../images/prod1.jpg')}   className="img-thumbnail" />  </Col>
-               {/* <Col xs="1"> <Button onClick={() => handleDelete(1) }> <Trash size={20} color="red" />  </Button></Col>*/}
-                <Col xs="1"> <Button onClick={() => handleCart(1) }> <Cart size={20} color="green" />  </Button></Col>
-            </Row>
-            <Row>
-                <Col xs="1"> 2 </Col>
-                <Col xs="2"> <h3>Prodotto 2</h3> </Col>
-                <Col xs="4"> Descrizione lunga lunga lunga  </Col>
-                <Col xs="1"> 15.50 </Col>
+                                 <Col xs="1"> <h1>Prezzo </h1></Col>
+                                 <Col xs="2"> <h1>Foto</h1>  </Col>
+                                 <Col xs="1"> <h1>-</h1> </Col>
+                             </Row>
+                     {productList}
 
-                <Col xs="2"> <img  src={require('../images/prod2.jpg')}  class="img-thumbnail"/> </Col>
-                <Col xs="1"> <Button onClick={() => handleCart(2) }> <Cart size={20} color="green" />  </Button></Col>
-            </Row>
-            <Row>
-                <Col xs="1"> 3 </Col>
-                <Col xs="2"> <h3>Prodotto 3</h3></Col>
-                <Col xs="4"> Descrizione lunga lunga lunga ma proprio lunga </Col>
-                <Col xs="1"> 11.50 </Col>
 
-                <Col xs="2"> <img  src={require('../images/prod3.jpg')} class="img-thumbnail" /> </Col>
-                 <Col xs="1"> <Button onClick={() => handleCart(3) }> <Cart size={20} color="green" />  </Button></Col>
-            </Row>
          </Container>
 
     </div>
-  );
+ );
 }
+
+
+
+
 
 export default Result;

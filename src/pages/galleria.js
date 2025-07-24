@@ -9,7 +9,6 @@ function Galleria() {
   return (
     <div className="container mt-5">
       <h2 className="text-center mb-4">Galleria Fotografica</h2>
-      
       <Carousel interval={3000}>
         <Carousel.Item>
           <img

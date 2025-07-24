@@ -1,6 +1,8 @@
+/*
 .App {
   display: flex;
 }
+*/
 
 .App-header {
   font-size: calc(15px + 1vmin);
@@ -10,21 +12,29 @@
   font-weight: bold;
 }
 
+
+/*
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+*/
 
+/*  blocco CSS media query che applica un’animazione a un logo React, ma solo se l’utente non ha espresso preferenze per ridurre le animazioni.
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+*/
 
+/* 
 .App-link {
   color: #61dafb;
 }
+*/
 
+/* serve per far ruotare un elemento (di solito un logo) in modo continuo.
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,6 +43,7 @@
     transform: rotate(360deg);
   }
 }
+*/
 
 .Container {
   display: flex;
@@ -87,11 +98,30 @@
   background: linear-gradient(135deg, #2a3a60, #1b273b);
 }
 
+.LeftHeaderBar {
+  justify-content:flex-end;
+}
+
+.RightHeaderBar{
+  justify-content: flex-end;
+}
+
+.buttons{
+  margin-left: 10px; 
+  float: right;
+}
+
+.buttonLogout{
+  margin-left: 10px; 
+  float: right;
+}
 
 /* Contenitore flags */
 .Flags {
   display: flex;
   gap: 10px;
+  margin-left: 50px;
+  float:right;
 }
 
 /* Flag stile */
@@ -106,4 +136,50 @@
 .flag-icon:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 8px #63a4ff);
+}
+
+.info{
+  display: flex;
+  color: white;
+  align-items: center;            /* centrati verticalmente */
+  padding: 20px 20px;              /* spazio interno */
+  background-color:#1b273b;
+  text-decoration: none;
+}
+
+.pageInfo{
+  color: black;
+  align-items: center;            /* centrati verticalmente */ 
+  padding: 20px;
+}
+
+.cont{
+  padding: 20px;
+  color: black;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* spazio tra testo e link */
+}
+
+.custom-link {
+  text-decoration: none; /* leva sottolineatura*/
+  color: white;/* imposta il colore (blu tipico Bootstrap) */
+  cursor: pointer; /*cursore manina */
+  background: none;     /* Rimuove lo sfondo del bottone*/
+  border: none;         /* Rimuove il bordo */
+  padding-bottom: 20px;
+}
+
+/* colore al passaggio del mouse (hover) */
+.custom-link:hover {
+  color: #1e7e34;
+}
+
+.nomeLog{
+  color: white;
+  margin-top: 30px;
+  padding-top: 15px;
 }

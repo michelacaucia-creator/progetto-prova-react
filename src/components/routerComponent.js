@@ -7,6 +7,8 @@ import Pag_prova2_1 from '../pages/Pag_prova2_1';
 import Pag_prova2_2 from '../pages/Pag_prova2_2';
 import Pag_prova3_1 from '../pages/Pag_prova3_1';
 import Pag_prova3_2 from '../pages/Pag_prova3_2';
+import Info from '../pages/Info';
+import Galleria from '../pages/galleria';
 
 
 
@@ -20,6 +22,8 @@ function RouterComponent({setToShoSpinner}) {
       <Route path="/prova2.2" element={<Pag_prova2_2 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={setToShoSpinner}/>} />
       <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/Info"     element={<Info         setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/galleria" element={<Galleria     setToShoSpinner={setToShoSpinner}/>} />
 
       <Route
         path="/"

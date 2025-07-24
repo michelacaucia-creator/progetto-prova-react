@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import mareImage from '../images/mare.jpg';
-
+import React , { useState ,useEffect } from "react";
 import Registration from '../pages/registration';
 import Login from '../pages/Login';
 import Acquisti from '../pages/acquisti';
@@ -11,18 +11,17 @@ import Pag_prova3_2 from '../pages/Pag_prova3_2';
 
 
 
-function RouterComponent({setToShoSpinner}) {
-
+function RouterComponent(props ) {
 
 
   return (
     <Routes>
-      <Route path="/registration" element={<Registration setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/login" element={<Login setToShoSpinner={setToShoSpinner} />} />
-      <Route path="/acquisti" element={<Acquisti setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/result" element={<Result setToShoSpinner={setToShoSpinner}  />} />
-      <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={setToShoSpinner}/>} />
-      <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={setToShoSpinner}/>} />
+      <Route path="/registration" element={<Registration setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}/>} />
+      <Route path="/login" element={<Login setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat} />} />
+      <Route path="/acquisti" element={<Acquisti setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}  />} />
+      <Route path="/result" element={<Result setToShoSpinner={props.setToShoSpinner}  subCatState={props.subCat}/>} />
+      <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}/>} />
+      <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={props.setToShoSpinner} subCatState={ props.subCat }/>} />
 
       <Route
         path="/"

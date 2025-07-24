@@ -10,7 +10,7 @@ import Button from 'react-bootstrap/Button';
 import wrapperRestApi from "../wrapper/restApiWrapper";
 
 
-function Acquisti({setToShoSpinner}) {
+function Acquisti(props) {
   
   //serve per la traduzione
   const { t, i18n } = useTranslation();
@@ -20,37 +20,27 @@ function Acquisti({setToShoSpinner}) {
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
 
+    const [res, setRes] = useState('');
+
   const location = useLocation();
   
 const handleSubCategory =(subCate) => {
-
-    sessionStorage.setItem("subCate", subCate);
+    return subCate;
+    //sessionStorage.setItem("subCate", subCate);
 
 }
 
- const getAllProd = async (subCat) => {
-        let requestBody = {
-            subCat : subCat
-        };
-
-         sessionStorage.setItem("res",  JSON.stringify(await wrapperRestApi('/api/get/product/getProducts', 'GET', requestBody, ''))  );
-        };
 
   // Nascondi lo spinner appena questa pagina viene montata
-  useEffect(() => {
+ /* useEffect(() => {
     setToShoSpinner(false);
-  }, [location]);
+  }, [location]);*/
 
 
   return (
     <div>
       <h2 style={{marginLeft:"20px"}}>{t("Sezione acquisti")}</h2>
-        <Link to="/result" >
-         <Button onClick={ () => {getAllProd(1)}}> mostra risultati </Button>
-        </Link>
-
-
-       {/* <div className="menu-container">
+       <div className="menu-container">
 
                  <div className="menu-item">
                    <div
@@ -62,7 +52,7 @@ const handleSubCategory =(subCate) => {
                    </div>
 
                                       <div className={`submenu ${isOpen2 ? 'open' : ''}`}>
-                     <Link to="/result" className="submenu-link" onClick={() => handleSubCategory("esperienze")}>
+                     <Link to="/result" className="submenu-link" onClick={() => handleSubCategory(1) }  >
                        {t("sottocategoria1")}
                      </Link>
                      <Link to="/result" className="submenu-link" onClick={() => handleSubCategory(2)}>
@@ -91,7 +81,7 @@ const handleSubCategory =(subCate) => {
                    </div>
 
                  </div>
-               </div>*/}
+               </div>
     </div>
   );
 }

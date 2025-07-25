@@ -19,8 +19,8 @@ function RouterComponent(props ) {
       <Route path="/registration" element={<Registration setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}/>} />
       <Route path="/login" element={<Login setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat} />} />
       <Route path="/acquisti" element={<Acquisti setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}  />} />
-      <Route path="/result" element={<Result setToShoSpinner={props.setToShoSpinner}  subCatState={props.subCat}/>} />
-      <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={props.setToShoSpinner} subCatState={props.subCat}/>} />
+     {/* <Route path="/result" element={<Result setToShoSpinner={props.setToShoSpinner}  />} />*/}
+      <Route path="/prova3.1" element={<Pag_prova3_1 setToShoSpinner={props.setToShoSpinner} subCatState={props.subCatAcq}/>} />
       <Route path="/prova3.2" element={<Pag_prova3_2 setToShoSpinner={props.setToShoSpinner} subCatState={ props.subCat }/>} />
 
       <Route
